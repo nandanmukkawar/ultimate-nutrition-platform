@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ultimate Nutrition Platform - Professional-grade nutrition tracking, meal planning, and health analytics">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NutriPro">
+    <meta name="theme-color" content="#3b82f6">
+    
+    <!-- Optimized for mobile -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
     <meta name="keywords" content="nutrition, diet, health, meal planning, calories, macros, fitness">
     <meta name="author" content="Ultimate Nutrition Platform">
     <title>Ultimate Nutrition Platform - Professional Nutrition & Health Analytics</title>
@@ -717,10 +729,109 @@
             }
         }
         
-        @media (max-width: 480px) {
-            .btn {
-                padding: 0.625rem 1.25rem;
-                font-size: 0.8125rem;
+        /* Mobile-First Responsive Design */
+        
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--radius-md);
+        }
+        
+        .mobile-menu-toggle:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        /* Enhanced Mobile Styles */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.75rem 0;
+            }
+            
+            .header-content {
+                position: relative;
+            }
+            
+            .logo {
+                font-size: 1rem;
+            }
+            
+            .logo-icon {
+                font-size: 1.25rem;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                border: 1px solid var(--border-color);
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-lg);
+                z-index: 1000;
+                padding: 1rem 0;
+                margin-top: 0.5rem;
+            }
+            
+            .nav.mobile-open {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .nav-item {
+                padding: 1rem 1.5rem;
+                border-radius: 0;
+                justify-content: flex-start;
+                font-size: 0.9rem;
+                border-bottom: 1px solid var(--border-light);
+            }
+            
+            .nav-item:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-item span:first-child {
+                width: 1.5rem;
+                text-align: left;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .main {
+                padding: 1rem 0;
+            }
+            
+            .grid.grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .grid.grid-3 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .grid.grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+            
+            .card {
+                margin-bottom: 1rem;
             }
             
             .card-header {
@@ -730,8 +841,323 @@
                 gap: 0.75rem;
             }
             
-            .card-content {
+            .card-title {
+                font-size: 1.125rem;
+                text-align: center;
+            }
+            
+            .button-group {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+                min-height: 44px; /* iOS touch target minimum */
+                min-width: 44px;
+            }
+            
+            .btn-sm {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8125rem;
+                min-height: 40px;
+            }
+            
+            .form-input, .form-control {
+                font-size: 16px; /* Prevent iOS zoom */
+                padding: 0.75rem;
+                min-height: 44px;
+            }
+            
+            .modal-content {
+                margin: 1rem;
+                max-height: calc(100vh - 2rem);
+                border-radius: var(--radius-lg);
+            }
+            
+            .modal-header {
                 padding: 1rem;
+            }
+            
+            .modal-body {
+                padding: 1rem;
+                max-height: calc(100vh - 8rem);
+            }
+            
+            .metric-card {
+                padding: 1rem;
+            }
+            
+            .metric-value {
+                font-size: 1.5rem;
+            }
+            
+            /* Mobile Chart Containers */
+            .chart-container {
+                height: 200px;
+                margin: 0.5rem 0;
+            }
+            
+            /* Mobile Analytics */
+            .analytics-metric {
+                padding: 1rem;
+                gap: 0.75rem;
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .metric-icon {
+                font-size: 1.5rem;
+                width: 2.5rem;
+                height: 2.5rem;
+                flex-shrink: 0;
+            }
+            
+            .metric-value {
+                font-size: 1.25rem;
+            }
+            
+            /* Mobile Food Search */
+            #search-results {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--bg-primary);
+                z-index: 2000;
+                transform: translateY(100%);
+                transition: transform 0.3s ease;
+            }
+            
+            #search-results.mobile-open {
+                transform: translateY(0);
+            }
+            
+            /* Mobile Meal Planning */
+            .meal-plan-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .day-column {
+                padding: 0.75rem;
+            }
+            
+            .meal-slot {
+                min-height: 60px;
+                padding: 0.75rem;
+            }
+            
+            /* Mobile Habits */
+            .habits-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .habit-card {
+                padding: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .logo {
+                font-size: 0.875rem;
+            }
+            
+            .logo span:last-child {
+                display: none; /* Hide text on very small screens */
+            }
+            
+            .grid.grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 0.75rem;
+            }
+            
+            .card-content {
+                padding: 0.75rem;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 0.5rem;
+            }
+            
+            .button-group .btn {
+                width: auto;
+                flex: 1;
+                margin-bottom: 0;
+            }
+            
+            .metric-card {
+                text-align: center;
+                padding: 0.75rem;
+            }
+            
+            .form-group {
+                margin-bottom: 1rem;
+            }
+            
+            /* Stack insight cards vertically */
+            .insight-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .insight-actions {
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .insight-actions .btn {
+                flex: 1;
+                margin: 0 0.25rem;
+            }
+            
+            /* Mobile-friendly calorie breakdown */
+            .calorie-breakdown {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .breakdown-item {
+                justify-content: center;
+                padding: 0.5rem;
+                background: var(--bg-secondary);
+                border-radius: var(--radius-sm);
+            }
+            
+            /* Mobile macro rings - smaller */
+            .macro-ring {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .macro-ring::before {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .macro-value {
+                font-size: 1rem;
+            }
+            
+            .macro-target {
+                font-size: 0.75rem;
+            }
+            
+            /* Mobile timing chart */
+            .timing-chart {
+                padding: 1rem;
+            }
+            
+            .timeline {
+                height: 40px;
+            }
+            
+            .meal-marker {
+                width: 30px;
+                height: 30px;
+                font-size: 0.75rem;
+            }
+            
+            /* Mobile grocery list */
+            .grocery-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .grocery-item {
+                padding: 0.75rem 0;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .item-info {
+                flex: 1;
+                min-width: 0;
+            }
+            
+            .item-name {
+                font-size: 0.875rem;
+            }
+            
+            /* Mobile recipe grid */
+            .recipe-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .recipe-card {
+                max-width: none;
+            }
+            
+            /* Touch-friendly tags */
+            .tag, .recipe-tag {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.875rem;
+                min-height: 36px;
+                display: inline-flex;
+                align-items: center;
+            }
+            
+            /* Mobile micronutrient grid */
+            .micronutrient-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .micro-item {
+                padding: 0.75rem;
+            }
+        }
+        
+        /* Landscape Phone Optimization */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .modal-content {
+                max-height: 90vh;
+                margin: 5vh auto;
+            }
+            
+            .header {
+                padding: 0.5rem 0;
+            }
+            
+            .nav-item {
+                padding: 0.5rem 1rem;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .btn:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            
+            .nav-item:hover {
+                background: var(--bg-tertiary);
+            }
+            
+            .card:hover {
+                transform: none;
+            }
+            
+            .recipe-card:hover,
+            .habit-card:hover {
+                transform: none;
+                box-shadow: var(--shadow-md);
             }
         }
         
@@ -1721,7 +2147,11 @@
                     <span>Ultimate Nutrition Platform</span>
                 </a>
                 
-                <nav class="nav" role="navigation" aria-label="Main navigation">
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">
+                    <span>☰</span>
+                </button>
+                
+                <nav class="nav" role="navigation" aria-label="Main navigation" id="mobile-nav">
                     <a href="#dashboard" class="nav-item active" onclick="showSection('dashboard')" data-section="dashboard">
                         <span>📊</span> Dashboard
                     </a>
@@ -3179,6 +3609,39 @@
         }
         
         /**
+         * Toggle mobile navigation menu
+         */
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mobile-nav');
+            const toggle = document.querySelector('.mobile-menu-toggle span');
+            
+            nav.classList.toggle('mobile-open');
+            
+            // Change hamburger to X when open
+            if (nav.classList.contains('mobile-open')) {
+                toggle.textContent = '✕';
+                toggle.style.fontSize = '1.25rem';
+            } else {
+                toggle.textContent = '☰';
+                toggle.style.fontSize = '1.5rem';
+            }
+        }
+        
+        /**
+         * Close mobile menu when clicking on nav items
+         */
+        function closeMobileMenu() {
+            const nav = document.getElementById('mobile-nav');
+            const toggle = document.querySelector('.mobile-menu-toggle span');
+            
+            if (nav.classList.contains('mobile-open')) {
+                nav.classList.remove('mobile-open');
+                toggle.textContent = '☰';
+                toggle.style.fontSize = '1.5rem';
+            }
+        }
+        
+        /**
          * Setup global event listeners
          */
         function setupEventListeners() {
@@ -3222,6 +3685,9 @@
          * Show a specific section and hide others
          */
         function showSection(sectionId, updateHistory = true) {
+            // Close mobile menu when navigating
+            closeMobileMenu();
+            
             // Hide all sections
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
