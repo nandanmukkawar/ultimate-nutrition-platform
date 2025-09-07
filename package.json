@@ -1,0 +1,40 @@
+{
+  "name": "ultimate-nutrition-platform",
+  "version": "1.0.0",
+  "description": "Professional-grade nutrition tracking, meal planning, and health analytics platform",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static HTML build complete'",
+    "start": "npx serve -s .",
+    "preview": "npx serve ."
+  },
+  "keywords": [
+    "nutrition",
+    "diet",
+    "health",
+    "meal-planning",
+    "calories",
+    "macros",
+    "fitness",
+    "wellness",
+    "food-tracking",
+    "health-analytics"
+  ],
+  "author": "Nandan S M <nandanmukkawar@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nandanmukkawar/ultimate-nutrition-platform.git"
+  },
+  "homepage": "https://ultimate-nutrition-platform.vercel.app",
+  "bugs": {
+    "url": "https://github.com/nandanmukkawar/ultimate-nutrition-platform/issues"
+  }
+}
